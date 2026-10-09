@@ -1,3 +1,5 @@
+console.log("JS LOADED");
+
 const weddingDate = new Date("2027-01-03T11:00:00");
 
 function updateCountdown() {
@@ -112,16 +114,25 @@ document
     }
 
     window.addEventListener("load", () => {
+
         const shouldPlay =
             sessionStorage.getItem("playMusic");
-            if (shouldPlay === "true") {
-                const music =
+
+        if (shouldPlay === "true") {
+
+            const music =
                 document.getElementById("bgMusic");
+
             if (music) {
-                music.play().catch(() => {
-                console.log("Autoplay blocked by browser.");});
+
+                music.play()
+                    .catch(err =>
+                        console.log(err));
             }
-        sessionStorage.removeItem("playMusic");
+
+            sessionStorage.removeItem(
+                "playMusic"
+            );
         }
     });
 
@@ -129,62 +140,87 @@ document
 
         const name =
             document.getElementById("wishName").value;
-    
+
         const message =
             document.getElementById("wishMessage").value;
-    
+
         if (!name || !message) {
-    
+
             alert("Sila isi nama dan ucapan.");
             return;
         }
-    
+
         const wishes =
             JSON.parse(localStorage.getItem("wishes")) || [];
-    
+
         wishes.unshift({
             name,
             message
         });
-    
+
         localStorage.setItem(
             "wishes",
             JSON.stringify(wishes)
         );
-    
+
         renderWishes();
-    
+
         document.getElementById("wishName").value = "";
         document.getElementById("wishMessage").value = "";
     }
-
 
     function renderWishes() {
 
         const container =
             document.getElementById("wishContainer");
-    
+
+        if (!container) return;
+
         container.innerHTML = "";
-    
+
         const wishes =
             JSON.parse(localStorage.getItem("wishes")) || [];
-    
+
         wishes.forEach(wish => {
-    
+
             container.innerHTML += `
-    
+
                 <div class="wish-card">
-    
+
                     <div class="wish-name">
                         ${wish.name}
                     </div>
-    
+
                     <div class="wish-message">
                         ${wish.message}
                     </div>
-    
+
                 </div>
-    
+
             `;
         });
     }
+
+    window.addEventListener("DOMContentLoaded", () => {
+
+        renderWishes();
+
+    });
+
+    sessionStorage.setItem("playMusic", "true");
+    window.location.href = "/Home/Invitation";
+
+    document.querySelector(".btn-open")
+    .addEventListener("click", function () {
+
+        sessionStorage.setItem(
+            "playMusic",
+            "true"
+        );
+
+        window.location.href =
+            "/Home/Invitation";
+
+    });
+
+    console.log("JS FINISHED");

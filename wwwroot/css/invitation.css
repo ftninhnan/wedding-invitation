@@ -256,9 +256,10 @@ body{
         ),
         url('/images/royalblue1.jpg');
 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-size: 100% auto;
+    background-position: center top;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
     overflow-x:hidden;
 }
 
