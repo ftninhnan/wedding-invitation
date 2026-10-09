@@ -1,0 +1,211 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    overflow:hidden;
+    font-family:'Segoe UI',sans-serif;
+}
+
+.hero{
+
+    height:100vh;
+
+    background:url('/images/cover2.jpg');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.overlay{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:transparent;
+
+    transform:translateY(-80px);
+}
+
+.overlay h4{
+
+    color:#244a9b;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    letter-spacing:12px;
+
+    text-transform:uppercase;
+
+    margin-bottom:60px;
+
+    text-shadow:
+        0 2px 8px rgba(255,255,255,.7);
+}
+
+.hero-title{
+
+    font-family:'Great Vibes',cursive;
+
+    color:#244a9b;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    line-height:.75;
+}
+
+.hero-title div:first-child{
+
+    font-size:12rem;
+
+    text-shadow:
+        0 6px 18px rgba(255,255,255,.7);
+}
+
+.hero-title div:last-child{
+
+    font-size:12rem;
+
+    text-shadow:
+        0 6px 18px rgba(255,255,255,.7);
+}
+
+.hero-and{
+
+    font-size:8rem;
+
+    color:#5b79d1;
+
+    line-height:.7;
+
+    margin:-25px 0;
+
+    text-shadow:
+        0 6px 18px rgba(255,255,255,.7);
+}
+
+.hero-date{
+
+    display:block;
+
+    color:#244a9b;
+
+    font-size:30px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    margin-top:70px;
+
+    margin-bottom:80px;
+
+    text-shadow:
+        0 2px 8px rgba(255,255,255,.7);
+}
+
+.open-btn{
+
+    display:inline-block;
+
+    padding:24px 120px;
+
+    background:#244a9b;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:999px;
+
+    font-size:28px;
+
+    font-weight:600;
+
+    box-shadow:
+        0 10px 30px rgba(36,74,155,.35);
+
+    transition:.3s ease;
+}
+
+.open-btn:hover{
+
+    background:#18336f;
+
+    color:white;
+
+    transform:translateY(-2px);
+}
+
+@media (max-width:430px){
+
+    .overlay{
+
+        transform:translateY(-60px);
+    }
+
+    .overlay h4{
+
+        font-size:18px;
+
+        letter-spacing:8px;
+
+        margin-bottom:40px;
+    }
+
+    .hero-title div:first-child,
+    .hero-title div:last-child{
+
+        font-size:8.5rem;
+    }
+
+    .hero-and{
+
+        font-size:6rem;
+
+        margin:-20px 0;
+    }
+
+    .hero-date{
+
+        font-size:22px;
+
+        margin-top:50px;
+
+        margin-bottom:55px;
+    }
+
+    .open-btn{
+
+        padding:20px 90px;
+
+        font-size:22px;
+    }
+}
