@@ -114,25 +114,16 @@ document
     }
 
     window.addEventListener("load", () => {
-
         const shouldPlay =
             sessionStorage.getItem("playMusic");
-
-        if (shouldPlay === "true") {
-
-            const music =
+            if (shouldPlay === "true") {
+                const music =
                 document.getElementById("bgMusic");
-
             if (music) {
-
-                music.play()
-                    .catch(err =>
-                        console.log(err));
+                music.play().catch(() => {
+                console.log("Autoplay blocked by browser.");});
             }
-
-            sessionStorage.removeItem(
-                "playMusic"
-            );
+        sessionStorage.removeItem("playMusic");
         }
     });
 
@@ -204,22 +195,6 @@ document
     window.addEventListener("DOMContentLoaded", () => {
 
         renderWishes();
-
-    });
-
-    sessionStorage.setItem("playMusic", "true");
-    window.location.href = "/Home/Invitation";
-
-    document.querySelector(".btn-open")
-    .addEventListener("click", function () {
-
-        sessionStorage.setItem(
-            "playMusic",
-            "true"
-        );
-
-        window.location.href =
-            "/Home/Invitation";
 
     });
 
