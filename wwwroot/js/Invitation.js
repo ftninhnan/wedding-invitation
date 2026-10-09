@@ -29,15 +29,29 @@ function updateCountdown() {
         (diff / 1000) % 60
     );
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl)
+        return;
+
+    daysEl.textContent = days;
+    hoursEl.textContent = hours;
+    minutesEl.textContent = minutes;
+    secondsEl.textContent = seconds;
 }
 
-updateCountdown();
-
-setInterval(updateCountdown, 1000);
+    if (
+        document.getElementById("days") &&
+        document.getElementById("hours") &&
+        document.getElementById("minutes") &&
+        document.getElementById("seconds")
+    ) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
 
 const observer = new IntersectionObserver(
     (entries) => {

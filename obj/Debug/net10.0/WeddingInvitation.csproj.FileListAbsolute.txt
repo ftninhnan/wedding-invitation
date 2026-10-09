@@ -96,6 +96,6 @@ C:\Users\S013233\WeddingInvitation\obj\Debug\net10.0\WeddingInvitation.pdb
 C:\Users\S013233\WeddingInvitation\obj\Debug\net10.0\WeddingInvitation.genruntimeconfig.cache
 C:\Users\S013233\WeddingInvitation\obj\Debug\net10.0\ref\WeddingInvitation.dll
 C:\Users\S013233\WeddingInvitation\obj\Debug\net10.0\compressed\24l9wcmkka-{0}-30oiiqi4q7-30oiiqi4q7.gz
-C:\Users\S013233\WeddingInvitation\obj\Debug\net10.0\compressed\rv24q5d1ot-{0}-zsyu35v7un-zsyu35v7un.gz
-C:\Users\S013233\WeddingInvitation\obj\Debug\net10.0\compressed\bw3404v004-{0}-zh7tyozj7h-zh7tyozj7h.gz
 C:\Users\S013233\WeddingInvitation\obj\Debug\net10.0\WeddingInvitation.sourcelink.json
+C:\Users\S013233\WeddingInvitation\obj\Debug\net10.0\compressed\bw3404v004-{0}-yvnk7suc59-yvnk7suc59.gz
+C:\Users\S013233\WeddingInvitation\obj\Debug\net10.0\compressed\rv24q5d1ot-{0}-td5g5x9ky5-td5g5x9ky5.gz
