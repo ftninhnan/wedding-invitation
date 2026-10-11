@@ -198,4 +198,19 @@ document
 
     });
 
+    const music = document.getElementById("bgMusic");
+    const musicButton = document.getElementById("musicToggle");
+
+    if (music && musicButton) {
+
+        musicButton.addEventListener("click", () => {
+
+            music.play()
+                .then(() => console.log("Music started"))
+                .catch(err => console.log("Music failed:", err));
+
+        });
+
+    }
+
     console.log("JS FINISHED");
