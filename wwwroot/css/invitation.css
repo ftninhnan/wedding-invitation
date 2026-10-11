@@ -1226,3 +1226,94 @@ section{
 
     line-height:1.6;
 }
+
+#invitationContent{
+    display:none;
+}
+
+#coverScreen{
+    position:fixed;
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:url('/images/cover2.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.cover-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.cover-content h4{
+
+    color:#244a9b;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    letter-spacing:12px;
+
+    margin-bottom:60px;
+}
+
+.cover-content .hero-title{
+
+    font-family:'Great Vibes',cursive;
+
+    color:#244a9b;
+
+    display:flex;
+    flex-direction:column;
+
+    line-height:.75;
+}
+
+.cover-content .hero-title div:first-child,
+.cover-content .hero-title div:last-child{
+
+    font-size:8rem;
+}
+
+.cover-content .hero-and{
+
+    font-size:6rem;
+
+    margin:-20px 0;
+}
+
+.cover-content .hero-date{
+
+    margin-top:50px;
+    margin-bottom:50px;
+
+    font-size:22px;
+
+    color:#244a9b;
+}
+
+.cover-content .open-btn{
+
+    padding:18px 80px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#244a9b;
+
+    color:white;
+
+    font-size:22px;
+}

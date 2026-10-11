@@ -198,16 +198,40 @@ document
 
     });
 
-    const music = document.getElementById("bgMusic");
-    const musicButton = document.getElementById("musicToggle");
+    const openInvitation =
+    document.getElementById("openInvitation");
 
-    if (music && musicButton) {
+    const coverScreen =
+        document.getElementById("coverScreen");
 
-        musicButton.addEventListener("click", () => {
+    const invitationContent =
+        document.getElementById("invitationContent");
 
-            music.play()
-                .then(() => console.log("Music started"))
-                .catch(err => console.log("Music failed:", err));
+    const music =
+        document.getElementById("bgMusic");
+
+    if (
+        openInvitation &&
+        coverScreen &&
+        invitationContent &&
+        music
+    ) {
+
+        openInvitation.addEventListener("click", async () => {
+
+            try {
+
+                await music.play();
+
+            } catch (err) {
+
+                console.log(err);
+
+            }
+
+            coverScreen.style.display = "none";
+
+            invitationContent.style.display = "block";
 
         });
 
