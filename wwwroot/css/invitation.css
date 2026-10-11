@@ -1372,15 +1372,15 @@ section{
 
 .coverpage-open-btn{
 
-    padding:18px 70px;
+    padding:15px 60px;
 
     border:none;
 
-    border-radius:999px;
+    border-radius:800px;
 
     color:white;
 
-    font-size:22px;
+    font-size:20px;
 
     font-weight:600;
 
@@ -1410,7 +1410,7 @@ section{
         0 12px 30px rgba(36,74,155,.18);
 }
 
-@media (max-width:430px){
+@media (max-width:768px){
 
     .coverpage-overlay{
 
