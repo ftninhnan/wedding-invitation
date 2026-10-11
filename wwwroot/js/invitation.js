@@ -113,130 +113,93 @@ document
             });
     }
 
-    window.addEventListener("load", () => {
-        const shouldPlay =
-            sessionStorage.getItem("playMusic");
-            if (shouldPlay === "true") {
-                const music =
-                document.getElementById("bgMusic");
-            if (music) {
-                music.play().catch(() => {
-                console.log("Autoplay blocked by browser.");});
-            }
-        sessionStorage.removeItem("playMusic");
-        }
-    });
-
-    function addWish() {
+    async function addWish() {
 
         const name =
-            document.getElementById("wishName").value;
+            document.getElementById("wishName")
+                .value
+                .trim();
 
         const message =
-            document.getElementById("wishMessage").value;
+            document.getElementById("wishMessage")
+                .value
+                .trim();
 
         if (!name || !message) {
 
-            alert("Sila isi nama dan ucapan.");
+            alert(
+                "Sila isi nama dan ucapan terlebih dahulu."
+            );
+
             return;
         }
 
-        const wishes =
-            JSON.parse(localStorage.getItem("wishes")) || [];
+        const response = await fetch(
 
-        wishes.unshift({
-            name,
-            message
-        });
+            `${SUPABASE_URL}/rest/v1/wishes`,
 
-        localStorage.setItem(
-            "wishes",
-            JSON.stringify(wishes)
+            {
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type":
+                        "application/json",
+
+                    apikey: SUPABASE_KEY,
+
+                    Authorization:
+                        `Bearer ${SUPABASE_KEY}`
+
+                },
+
+                body: JSON.stringify({
+
+                    name: name,
+
+                    message: message
+
+                })
+
+            }
         );
 
-        renderWishes();
+        if (response.ok) {
 
-        document.getElementById("wishName").value = "";
-        document.getElementById("wishMessage").value = "";
-    }
-
-    function renderWishes() {
-
-        const container =
-            document.getElementById("wishContainer");
-
-        if (!container) return;
-
-        container.innerHTML = "";
-
-        const wishes =
-            JSON.parse(localStorage.getItem("wishes")) || [];
-
-        wishes.forEach(wish => {
-
-            container.innerHTML += `
-
-                <div class="wish-card">
-
-                    <div class="wish-name">
-                        ${wish.name}
-                    </div>
-
-                    <div class="wish-message">
-                        ${wish.message}
-                    </div>
-
-                </div>
-
-            `;
-        });
-    }
-
-    function renderWishesCarousel() {
-
-        const carousel =
             document.getElementById(
-                "wishesCarouselInner"
+                "wishName"
+            ).value = "";
+
+            document.getElementById(
+                "wishMessage"
+            ).value = "";
+
+            alert(
+                "Terima kasih atas ucapan anda 🤍"
             );
 
-        if (!carousel) return;
+            wishesSection.style.display = "none";
 
-        carousel.innerHTML = "";
+            wishesBtn.style.display = "inline-block";
 
-        wishes.forEach((wish, index) => {
+            loadWishes();
 
-            carousel.innerHTML += `
+        } else {
 
-            <div class="carousel-item
-                ${index === 0 ? 'active' : ''}">
+            alert(
+                "Gagal menghantar ucapan."
+            );
 
-                <div class="carousel-wish-card">
+            const errorText =
+                await response.text();
 
-                    <div class="carousel-wish-name">
+            console.log(errorText);
 
-                        ${wish.name}
+            alert(errorText);
 
-                    </div>
-
-                    <div class="carousel-wish-message">
-
-                        "${wish.message}"
-
-                    </div>
-
-                </div>
-
-            </div>`;
-
-        });
+        }
 
     }
-
-    window.addEventListener("DOMContentLoaded", () => {
-
-        renderWishes();
-
-    });
 
     const openInvitation =
     document.getElementById("openInvitation");
@@ -327,7 +290,7 @@ document
     async function loadWishes() {
         const response = await fetch(
 
-            `${SUPABASE_URL}/rest/v1/wishes?select=*`,
+            `${SUPABASE_URL}/rest/v1/wishes?select=*&order=created_at.desc`,
 
             {
                 headers: {
