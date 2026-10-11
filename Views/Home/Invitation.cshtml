@@ -619,39 +619,93 @@
 
 <section class="container text-center animate-section">
 
-    <div class="glass-card">
+    <div id="wishesCarouselContainer">
 
-        <h2>Ucapan & Doa 🤍</h2>
+        <div id="wishesCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel">
 
-        <p>
-            Tinggalkan ucapan dan doa buat kami.
-        </p>
+            <div class="carousel-inner">
 
-        <input
-            type="text"
-            id="wishName"
-            class="form-control mb-3"
-            placeholder="Daripada" />
+                <!-- JS will inject wishes here -->
 
-        <textarea
-            id="wishMessage"
-            class="form-control mb-3"
-            rows="4"
-            placeholder="Ucapan & Doa"></textarea>
+            </div>
 
-        <button
-            class="location-btn"
-            onclick="addWish()">
+            <button class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#wishesCarousel"
+                    data-bs-slide="prev">
 
-            Hantar Ucapan
+                <span class="carousel-control-prev-icon">
+                </span>
 
-        </button>
+            </button>
 
-        <div id="wishContainer"
-             class="wish-container mt-4">
+            <button class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#wishesCarousel"
+                    data-bs-slide="next">
+
+                <span class="carousel-control-next-icon">
+                </span>
+
+            </button>
 
         </div>
 
+    </div>
+    <button id="wishesBtn" class="wishes-toggle-btn">
+
+        🖋️ Wishes
+
+    </button>
+
+    <div id="wishesSection" style="display:none;">
+
+        <div class="glass-card">
+            <div class="text-end">
+
+                <button id="closeWishes"
+                        class="close-wishes-btn">
+
+                    ✖
+
+                </button>
+
+            </div>
+
+            <h2>Ucapan & Doa 🤍</h2>
+
+            <p>
+                Tinggalkan ucapan dan doa buat kami.
+            </p>
+
+            <input
+                type="text"
+                id="wishName"
+                class="form-control mb-3"
+                placeholder="Daripada" />
+
+            <textarea
+                id="wishMessage"
+                class="form-control mb-3"
+                rows="4"
+                placeholder="Ucapan & Doa"></textarea>
+
+            <button
+                class="location-btn"
+                onclick="addWish()">
+
+                Hantar Ucapan
+
+            </button>
+
+            <div id="wishContainer"
+                class="wish-container mt-4">
+
+            </div>
+
+        </div>
     </div>
 
 </section>
